@@ -1,6 +1,6 @@
 Gem::Specification.new do |g|
   g.name          = "sprockets-cjsx"
-  g.version       = "0.0.2"
+  g.version       = "0.0.3"
   g.licenses      = ["MIT"]
   g.summary       = "CJSX with Sprockets"
   g.description   = "Allows you to use CJSX with Sprockets"
