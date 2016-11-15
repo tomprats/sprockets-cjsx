@@ -6,19 +6,18 @@ module Sprockets
   module CJSX
     module PreProcessor
       def self.call(input)
-        coffeescript = CoffeeReact.transform(input[:data])
-        javascript   = CoffeeScript.compile(coffeescript)
-        { data: javascript }
+        { data: CoffeeReact.transform(input[:data]) }
       end
     end
 
-    module PostProcessor
+    module Transformer
       def self.call(input)
-        { data: CoffeeReact.jstransform(input[:data]) }
+        { data: CoffeeScript.compile(input[:data]) }
       end
     end
   end
 end
 
-Sprockets.register_preprocessor "application/javascript", Sprockets::CJSX::PreProcessor
-Sprockets.register_postprocessor "application/javascript", Sprockets::CJSX::PreProcessor
+Sprockets.register_mime_type "text/coffeescript", extensions: [".coffee", ".coffee.erb"]
+Sprockets.register_preprocessor "text/coffeescript", Sprockets::CJSX::PreProcessor
+Sprockets.register_transformer "text/coffeescript", "application/javascript", Sprockets::CJSX::Transformer
