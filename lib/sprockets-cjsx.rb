@@ -6,4 +6,4 @@ module MySprocketsExtension
   end
 end
 
-Sprockets.register_preprocessor 'text/css', MySprocketsExtension
+Sprockets.register_preprocessor 'text/coffeescript', MySprocketsExtension
