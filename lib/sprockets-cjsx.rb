@@ -1,11 +1,9 @@
+require "sprockets"
+
 module MySprocketsExtension
   def self.call(input)
-    result = input[:data] # :data key holds source
-    { data: result }
+    raise Error
   end
 end
 
-require 'sprockets/processing'
-extend Sprockets::Processing
-
-register_preprocessor 'text/css', MySprocketsExtension
+Sprockets.register_preprocessor 'text/css', MySprocketsExtension
