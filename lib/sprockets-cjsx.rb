@@ -5,6 +5,7 @@ module Sprockets
   module CJSX
     module PreProcessor
       def self.call(input)
+        raise Error
         { data: CoffeeReact.transform(input[:data]) }
       end
     end
