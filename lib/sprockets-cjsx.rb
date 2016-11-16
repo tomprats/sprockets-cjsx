@@ -1,3 +1,4 @@
+require "sprockets"
 require "coffee-react"
 
 module Sprockets
@@ -10,5 +11,4 @@ module Sprockets
   end
 end
 
-require "sprockets"
-register_preprocessor "text/coffeescript", Sprockets::CJSX::PreProcessor
+Sprockets.register_preprocessor "text/coffeescript", Sprockets::CJSX::PreProcessor
