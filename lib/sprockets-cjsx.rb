@@ -1,11 +1,14 @@
-module MySprocketsExtension
-  def self.call(input)
-    result = input[:data] # :data key holds source
-    { data: result }
+require "coffee-react"
+
+module Sprockets
+  module CJSX
+    module PreProcessor
+      def self.call(input)
+        { data: CoffeeReact.transform(input[:data]) }
+      end
+    end
   end
 end
 
-require 'sprockets/processing'
-extend Sprockets::Processing
-
-register_preprocessor 'text/css', MySprocketsExtension
+require "sprockets"
+register_preprocessor "text/coffeescript", Sprockets::CJSX::PreProcessor
