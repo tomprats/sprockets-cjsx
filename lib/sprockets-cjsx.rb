@@ -18,6 +18,6 @@ module Sprockets
   end
 end
 
-Sprockets.register_mime_type "text/coffeescript", extensions: [".coffee", ".js.coffee"]
+Sprockets.register_mime_type "text/coffeescript", extensions: [".coffee", ".js.coffee", ".coffee.js"]
 Sprockets.register_preprocessor "text/coffeescript", Sprockets::CJSX::PreProcessor
 Sprockets.register_transformer "text/coffeescript", "application/javascript", Sprockets::CJSX::Transformer
